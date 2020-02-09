@@ -5,17 +5,17 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        var map = L.map('mapa').setView([20.673391, -103.346535], 13);
+        // var map = L.map('mapa').setView([20.673391, -103.346535], 13);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        // }).addTo(map);
 
-        L.marker([20.673391, -103.346535]).addTo(map)
-            .bindPopup('GDLWebCamp 2018 <br> Boletos ya disponibles')
-            .openPopup()
-            .bindTooltip('Un Tooltip')
-            .openTooltip();
+        // L.marker([20.673391, -103.346535]).addTo(map)
+        //     .bindPopup('GDLWebCamp 2018 <br> Boletos ya disponibles')
+        //     .openPopup()
+        //     .bindTooltip('Un Tooltip')
+        //     .openTooltip();
 
         //Campos Datos usuario
         var nombre = document.getElementById('nombre');
