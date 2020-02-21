@@ -48,6 +48,9 @@ $(document).ready(function() {
                         'Bienvenid@ ' + resultado.usuario +'!!',
                         'success'
                     )
+                    setTimeout(function() {
+                        window.location.href = 'admin-area.php';
+                    }, 2000);
                 }else{
                     swal(
                         'Error',
