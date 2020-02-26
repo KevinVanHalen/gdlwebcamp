@@ -1,14 +1,26 @@
 $(document).ready(function () {
     $('.sidebar-menu').tree()
 
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+    $('#registros').DataTable({
+        'paging'      : true,
+        'pageLength'  : 10,
+        'lengthChange': false,
+        'searching'   : true,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false,
+        'language'    : {
+            paginate: {
+                next: 'Siguiente',
+                previous: 'Anterior',
+                last: 'Ultimo',
+                first: 'Primero'
+            },
+            info: 'Mostrando _START_ a _END_ de _TOTAL_ resultados',
+            emptyTable: 'No hay registros',
+            infoEmpty: '0 Registros',
+            search: 'Buscar: '
+        }
     });
     
 })
