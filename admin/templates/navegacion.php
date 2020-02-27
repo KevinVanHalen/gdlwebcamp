@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="info">
-          <p>Kevin Corona</p>
+          <p><?php echo $_SESSION['nombre']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -78,17 +78,19 @@
             <li><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a></li>
           </ul>
         </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <span>Administradores</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="lista-admin.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Ver Todos </a></li>
-            <li><a href="crear-admin.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a></li>
-          </ul>
-        </li>
+        
+        <?php if($_SESSION['nivel'] == 1): ?>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>Administradores</span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="lista-admin.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Ver Todos </a></li>
+              <li><a href="crear-admin.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a></li>
+            </ul>
+          </li>
+        <?php endif; ?>
 
         <li class="treeview">
           <a href="#">
