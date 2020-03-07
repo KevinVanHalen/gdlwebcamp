@@ -57,6 +57,7 @@ $(document).ready(function() {
                     },
                     url: 'modelo-eliminar-'+tipo+'.php',
                     success: function(data) {
+                        console.log(data);
                         var resultado = JSON.parse(data);
                         if(resultado.respuesta == 'exito'){
                             swal(

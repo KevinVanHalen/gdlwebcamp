@@ -2,7 +2,8 @@
 
     include_once 'funciones/funciones.php';
 
-    if(isset($_POST['registro']) == 'nuevo'){
+    if(isset($_POST['registro']) == 'actualizar'){
+
         $titulo = $_POST['titulo_evento'];
         $categoria_id = $_POST['categoria_evento'];
         $invitado_id = $_POST['invitado'];
@@ -11,17 +12,18 @@
         $fecha_formateada = date('Y-m-d', strtotime($fecha));
         // Hora
         $hora = $_POST['hora_evento'];
+        $id_registro = $_POST['id_registro'];
+        
         $hora_formateada = date('H:i', strtotime($hora));
 
         try {
-            $stmt = $conn->prepare('INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, id_cat_evento, id_inv) VALUES (?, ?, ?, ?, ?) ');
-            $stmt->bind_param('sssii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id);
+            $stmt = $conn->prepare('UPDATE eventos SET nombre_evento = ?, fecha_evento = ?, hora_evento = ?, id_cat_evento = ?, id_inv = ?, editado = NOW() WHERE evento_id = ? ');
+            $stmt->bind_param('sssiii', $titulo, $fecha_formateada, $hora_formateada, $categoria_id, $invitado_id, $id_registro);
             $stmt->execute();
-            $id_insertado = $stmt->insert_id;
             if($stmt->affected_rows){
                 $respuesta = array(
                     'respuesta' => 'exito',
-                    'id_insertado' => $id_insertado
+                    'id_actualizado' => $id_registro
                 );
             }else{
                 $respuesta = array(
