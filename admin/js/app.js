@@ -53,4 +53,6 @@ $(document).ready(function () {
         showInputs: false
     });
     
+    $('#icono').iconpicker();
+
 })
