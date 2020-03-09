@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Crear un nuevo administrador
+    // Crear un nuevo administrador o registro
     $('#guardar-registro').on('submit', function(e) {
         e.preventDefault();
 
@@ -10,6 +10,42 @@ $(document).ready(function() {
             data: datos,
             url: $(this).attr('action'),
             dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                var resultado = data;
+                if(resultado.respuesta == 'exito'){
+                    swal(
+                        'Correcto',
+                        'El administrador se guardó correctamente',
+                        'success'
+                    )
+                }else{
+                    swal(
+                        'Error',
+                        'Hubo un error',
+                        'error'
+                    )
+                }
+            }
+        })
+
+    });
+
+    // Se ejecuta cuando hay un archivo
+    $('#guardar-registro-archivo').on('submit', function(e) {
+        e.preventDefault();
+
+        var datos = new FormData(this);
+
+        $.ajax({
+            type: $(this).attr('method'),
+            data: datos,
+            url: $(this).attr('action'),
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            async: true,
+            cache: false,
             success: function(data) {
                 console.log(data);
                 var resultado = data;

@@ -63,8 +63,8 @@
             <span>Invitados</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i> Ver Todos </a></li>
-            <li><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a></li>
+            <li><a href="lista-invitados.php"><i class="fa fa-list-ul" aria-hidden="true"></i> Ver Todos </a></li>
+            <li><a href="crear-invitado.php"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar </a></li>
           </ul>
         </li>
 
