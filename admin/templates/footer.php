@@ -30,6 +30,8 @@ reserved.
 <!-- AdminLTE for demo purposes -->
 <script src="js/demo.js"></script>
 <script src="js/login-ajax.js"></script>
+<script src="js/icheck.min.js"></script>
+<script src="../js/cotizador.js"></script>
 <script src="js/app.js"></script>
 
 </body>

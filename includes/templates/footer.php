@@ -79,6 +79,7 @@
         <!-- <script src="js/jquery.colorbox-min.js"></script> -->
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/cotizador.js"></script>
 
         <?php
             $archivo = basename($_SERVER['PHP_SELF']);

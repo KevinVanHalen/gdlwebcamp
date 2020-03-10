@@ -31,7 +31,7 @@
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="usuario">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre_categoria" name="nombre_categoria" placeholder="Categoría">
+                                        <input type="text" class="form-control" id="usuario" name="nombre_categoria" placeholder="Categoría">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Icono:</label>
