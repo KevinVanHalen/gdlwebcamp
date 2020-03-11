@@ -68,7 +68,6 @@
                                             <td>
                                                 <?php 
                                                     $articulos = json_decode($registrado['pases_articulos'], true);
-                                                    var_dump($articulos);
                                                     $arreglo_articulos = array(
                                                         'un dia' => 'Pase 1 día',
                                                         'pase_2dias' => 'Pase 2 días',
@@ -77,7 +76,11 @@
                                                         'etiquetas' => 'Etiquetas'
                                                     );
                                                     foreach($articulos as $key => $articulo){
-                                                        echo $articulo . " " . $arreglo_articulos[$key] . "<br>";
+                                                        if(is_array($articulo) && array_key_exists('cantidad', $articulo)){
+                                                            echo $articulo['cantidad'] . " " . $arreglo_articulos[$key] . "<br>";
+                                                        }else{
+                                                            echo $articulo . " " . $arreglo_articulos[$key] . "<br>";
+                                                        }
                                                     }
                                                 ?>
                                             </td>
@@ -87,11 +90,9 @@
                                                     $talleres = json_decode($eventos_resultado, true);
 
                                                     $talleres = implode("', '", $talleres['eventos']);
-                                                    $sql_talleres = "SELECT nombre_evento, fecha_evento, hora_evento FROM eventos WHERE clave IN ('$talleres') ";
+                                                    $sql_talleres = "SELECT nombre_evento, fecha_evento, hora_evento FROM eventos WHERE clave IN ('$talleres') OR evento_id IN ('$talleres') ";
 
                                                     $resultado_talleres = $conn->query($sql_talleres);
-
-                                                    
                                                     
                                                     while($eventos = $resultado_talleres->fetch_assoc()){
                                                         echo $eventos['nombre_evento'] . " ". $eventos['fecha_evento'] . " " . $eventos['hora_evento'] . "<br>";
@@ -99,12 +100,12 @@
                                                 ?>
                                             </td>
                                             <td><?php echo $registrado['nombre_regalo']; ?></td>
-                                            <td>$ <?php echo $registrado['total_pagado']; ?></td>
+                                            <td>$ <?php echo (float)$registrado['total_pagado']; ?></td>
                                             <td>
                                                 <a href="editar-registro.php?id=<?php echo $registrado['id_registrado']; ?>" class="btn bg-orange btn-flat margin">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <a href="#" data-id="<?php echo $registrado['id_registrado']; ?>" data-tipo="registrado" class="btn bg-maroon btn-flat margin borrar_registro">
+                                                <a href="#" data-id="<?php echo $registrado['id_registrado']; ?>" data-tipo="registro" class="btn bg-maroon btn-flat margin borrar_registro">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>

@@ -32,14 +32,21 @@
 
             calcular.addEventListener('click', calcularMontos);
 
-            pase_dia.addEventListener('blur', mostrarDias);
-            pase_dosdias.addEventListener('blur', mostrarDias);
-            pase_completo.addEventListener('blur', mostrarDias);
+            pase_dia.addEventListener('input', mostrarDias);
+            pase_dosdias.addEventListener('input', mostrarDias);
+            pase_completo.addEventListener('input', mostrarDias);
 
             nombre.addEventListener('blur', validarCampos);
             apellido.addEventListener('blur', validarCampos);
             email.addEventListener('blur', validarCampos);
             email.addEventListener('blur', validarMail);
+
+            var formulario_editar = document.getElementsByClassName('editar-registrado');
+            if(formulario_editar.length > 0){
+                if(pase_dia.value || pase_dosdias.value || pase_completo.value){
+                    mostrarDias();
+                }
+            }
 
             function validarCampos() {
                 if(this.value == ''){
