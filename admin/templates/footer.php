@@ -27,6 +27,8 @@ reserved.
 <script src="js/select2.full.min.js"></script>
 <script src="js/bootstrap-timepicker.min.js"></script>
 <script src="js/fontawesome-iconpicker.min.js"></script>
+<script src="js/raphael.min.js"></script>
+<script src="js/morris.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="js/demo.js"></script>
 <script src="js/login-ajax.js"></script>
